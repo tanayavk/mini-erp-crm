@@ -6,30 +6,30 @@ A full-stack Mini ERP & CRM system built for wholesale and distribution operatio
 
 ## 🔑 Test Login Credentials
 
-All test accounts use the password: `Password123!`[cite: 4]
+All test accounts use the password: `Password123!`
 
 | Role | Email | Module Access Overview |
 | :--- | :--- | :--- |
-| **Admin** | `admin@erp.com` | Full CRUD across all modules[cite: 4]. |
-| **Sales** | `sales@erp.com` | Full Customer CRM & Sales Challans; Read-Only Products & Stock[cite: 4]. |
-| **Warehouse** | `warehouse@erp.com` | Full Products & Manual Stock (`IN`/`OUT`); Read-Only CRM & Challans[cite: 4]. |
-| **Accounts** | `accounts@erp.com` | Read-Only across Customers, Products, Stock, and Sales Challans[cite: 4]. |
+| **Admin** | `admin@erp.com` | Full CRUD across all modules. |
+| **Sales** | `sales@erp.com` | Full Customer CRM & Sales Challans; Read-Only Products & Stock. |
+| **Warehouse** | `warehouse@erp.com` | Full Products & Manual Stock (`IN`/`OUT`); Read-Only CRM & Challans. |
+| **Accounts** | `accounts@erp.com` | Read-Only across Customers, Products, Stock, and Sales Challans. |
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Backend
-* **Runtime & Language**: Node.js (v22+) with TypeScript in strict ESM mode (`"type": "module"`)[cite: 4, 5].
-* **Framework**: Express.js with centralized error handling[cite: 4, 5].
-* **Database & Driver**: MySQL 8.x using `mysql2/promise` with asynchronous connection pooling[cite: 4, 5].
-* **Validation & Security**: Joi schema validation, `bcryptjs` password hashing, and JWT authorization (`jsonwebtoken`)[cite: 4, 5].
+* **Runtime & Language**: Node.js (v22+) with TypeScript in strict ESM mode (`"type": "module"`).
+* **Framework**: Express.js with centralized error handling.
+* **Database & Driver**: MySQL 8.x using `mysql2/promise` with asynchronous connection pooling.
+* **Validation & Security**: Joi schema validation, `bcryptjs` password hashing and JWT authorization (`jsonwebtoken`).
 
 ### Frontend
-* **Core Framework**: React (Vite)[cite: 4, 5].
-* **Styling**: Tailwind CSS v4[cite: 4, 5].
-* **State & Routing**: React Context API (`AuthContext`), React Router DOM v6, Axios with interceptors[cite: 4].
-* **PDF Engine**: `jspdf` & `jspdf-autotable`[cite: 4].
+* **Core Framework**: React (Vite).
+* **Styling**: Tailwind CSS v4.
+* **State & Routing**: React Context API (`AuthContext`), React Router DOM v6, Axios with interceptors.
+* **PDF Engine**: `jspdf` & `jspdf-autotable`.
 
 ---
 
