@@ -22,6 +22,13 @@ app.use('/api/challans', challanRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/products', productRoutes);
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Unified Business Platform Backend API is running live!',
+    healthCheck: '/api/health'
+  });
+});
+
 app.get('/api/health', async (req: Request, res: Response) => {
   try {
     const connection = await pool.getConnection();
