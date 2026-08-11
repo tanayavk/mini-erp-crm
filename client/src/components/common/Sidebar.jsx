@@ -69,14 +69,14 @@ export const Sidebar = () => {
   return (
     <aside className="w-64 border-r border-slate-800 bg-slate-900 text-slate-300 flex flex-col justify-between shrink-0 select-none">
       <div className="p-4">
-        {/* Brand Identity Header */}
+        {/* Unified Business Platform Brand Identity */}
         <div className="flex items-center gap-3 px-3 py-2 mb-6 border-b border-slate-800 pb-5">
           <div className="h-9 w-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-lg shadow-md shadow-indigo-600/30">
-            🛡️
+            🏢
           </div>
           <div>
-            <h1 className="text-base font-extrabold text-white tracking-tight leading-tight">
-              Aegis<span className="text-indigo-400">ERP</span>
+            <h1 className="text-sm font-extrabold text-white tracking-tight leading-snug">
+              Unified Business <span className="text-indigo-400">Platform</span>
             </h1>
             <p className="text-[10px] font-medium text-slate-400">Operations Portal v3.0</p>
           </div>

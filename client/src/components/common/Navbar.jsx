@@ -65,7 +65,7 @@ export const Navbar = () => {
       if (parts.length >= 2) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
       return name.slice(0, 2).toUpperCase();
     }
-    return email ? email.slice(0, 2).toUpperCase() : 'US';
+    return email ? email.slice(0, 2).toUpperCase() : 'UB';
   };
 
   return (
@@ -73,12 +73,12 @@ export const Navbar = () => {
       <div className="flex items-center gap-3">
         <div className="md:hidden flex items-center gap-2">
           <div className="h-8 w-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">
-            🛡️
+            🏢
           </div>
-          <span className="font-bold text-slate-900 tracking-tight text-lg">AegisERP</span>
+          <span className="font-bold text-slate-900 tracking-tight text-base">Unified Business Platform</span>
         </div>
         <span className="hidden md:inline-block text-xs font-semibold text-slate-500 uppercase tracking-wider">
-          Unified Operations Portal
+          Unified Business Platform
         </span>
       </div>
 
@@ -88,7 +88,7 @@ export const Navbar = () => {
             {getInitials(user?.name, user?.email)}
           </div>
           <div className="hidden sm:block text-right">
-            <p className="text-xs font-bold text-slate-900">{user?.name || 'Aegis Staff'}</p>
+            <p className="text-xs font-bold text-slate-900">{user?.name || 'Platform Staff'}</p>
             <p className="text-[11px] text-slate-500 font-mono">{user?.email}</p>
           </div>
         </div>

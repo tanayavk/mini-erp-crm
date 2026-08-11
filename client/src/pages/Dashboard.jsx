@@ -103,7 +103,7 @@ export const Dashboard = () => {
       <div className="rounded-2xl bg-slate-900 p-6 text-white shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border border-slate-800">
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-400 border border-indigo-500/20 mb-2">
-            🛡️ AegisERP Operations Hub
+            🏢 Unified Business Platform
           </div>
           <h2 className="text-2xl font-bold tracking-tight">Welcome back, {user?.name || 'User'}</h2>
           <p className="text-xs text-slate-400 mt-1">
@@ -114,7 +114,6 @@ export const Dashboard = () => {
 
       {/* KPI Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Active Customers */}
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-bold uppercase tracking-wider">Total Customers</span>
@@ -126,7 +125,6 @@ export const Dashboard = () => {
           <p className="text-[11px] text-slate-500">Registered active & lead directory</p>
         </div>
 
-        {/* Active Products */}
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-bold uppercase tracking-wider">Catalog Products</span>
@@ -138,7 +136,6 @@ export const Dashboard = () => {
           <p className="text-[11px] text-slate-500">Active inventory SKUs tracked</p>
         </div>
 
-        {/* Low Stock Warning */}
         <div className={`bg-white p-5 rounded-2xl border shadow-2xs space-y-2 ${stats.lowStock > 0 ? 'border-amber-300 bg-amber-50/20' : 'border-slate-200'}`}>
           <div className="flex items-center justify-between text-amber-700">
             <span className="text-xs font-bold uppercase tracking-wider">Low Stock Alerts</span>
@@ -150,7 +147,6 @@ export const Dashboard = () => {
           <p className="text-[11px] text-amber-700 font-medium">SKUs at or below min alert level</p>
         </div>
 
-        {/* Total Challans */}
         <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-2">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-bold uppercase tracking-wider">Sales Challans</span>
