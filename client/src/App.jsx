@@ -7,6 +7,7 @@ import { Sidebar } from './components/common/Sidebar';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { Customers } from './pages/Customers';
+import { Products } from './pages/Products';
 
 // Layout Wrapper for Authenticated Pages
 const MainLayout = () => (
@@ -39,7 +40,7 @@ export default function App() {
             <Route element={<MainLayout />}>
               <Route path="/" element={<Dashboard />} />
               <Route path="/customers" element={<Customers />} />
-              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/challans" element={<ChallansPage />} />
             </Route>
           </Route>

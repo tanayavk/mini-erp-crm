@@ -8,7 +8,7 @@ export const Sidebar = () => {
   const navItems = [
     { label: 'Dashboard', path: '/', roles: ['Admin', 'Sales', 'Warehouse', 'Accounts'] },
     { label: 'Customers', path: '/customers', roles: ['Admin', 'Sales', 'Accounts'], readOnlyFor: ['Warehouse'] },
-    { label: 'Products & Stock', path: '/products', roles: ['Admin', 'Sales', 'Warehouse'], readOnlyFor: ['Accounts'] },
+    { label: 'Products & Stock', path: '/products', roles: ['Admin', 'Sales', 'Warehouse'], readOnlyFor: ['Sales','Accounts'] },
     { label: 'Sales Challans', path: '/challans', roles: ['Admin', 'Sales', 'Warehouse', 'Accounts'], readOnlyFor: [] },
   ];
 
