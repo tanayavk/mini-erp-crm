@@ -1,4 +1,3 @@
-// import type-only form
 import type { Request, Response, NextFunction } from 'express';
 export type UserRole = 'Admin' | 'Sales' | 'Warehouse' | 'Accounts';
 

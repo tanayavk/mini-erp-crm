@@ -45,8 +45,11 @@ export const listProductsQuerySchema = Joi.object({
   page: Joi.number().integer().min(1).default(1),
   limit: Joi.number().integer().min(1).max(100).default(10),
   search: Joi.string().allow('', null).optional().trim(),
-  low_stock: Joi.boolean().optional()
-});
+  category: Joi.string().allow('').optional(),
+  low_stock: Joi.alternatives()
+    .try(Joi.boolean(), Joi.string().valid('true', 'false'))
+    .optional()
+}).unknown(true);
 
 export const adjustStockSchema = Joi.object({
   quantity_changed: Joi.number().integer().min(1).required().messages({
@@ -157,6 +160,11 @@ export const listProducts = async (
       const searchPattern = `%${query.search}%`;
       whereClauses.push('(name LIKE ? OR sku LIKE ? OR category LIKE ? OR location LIKE ?)');
       queryParams.push(searchPattern, searchPattern, searchPattern, searchPattern);
+    }
+
+    if (query.category && query.category.trim() !== '') {
+      whereClauses.push('category = ?');
+      queryParams.push(query.category.trim());
     }
 
     if (query.low_stock === true || query.low_stock === 'true') {

@@ -11,8 +11,14 @@ export const createCustomerSchema = Joi.object({
   name: Joi.string().required().trim().messages({
     'any.required': 'Name is required'
   }),
-  mobile: Joi.string().required().trim().messages({
-    'any.required': 'Mobile is required'
+  mobile: Joi.string()
+  .trim()
+  .required()
+  .pattern(/^(\d{10}|\+91\d{10})$/)
+  .messages({
+    'any.required': 'Mobile is required',
+    'string.empty': 'Mobile is required',
+    'string.pattern.base': 'Mobile must be 10 digits or +91 followed by 10 digits'
   }),
   email: Joi.string().email().required().trim().messages({
     'string.email': 'Invalid email format',
@@ -43,7 +49,13 @@ export const createCustomerSchema = Joi.object({
 
 export const updateCustomerSchema = Joi.object({
   name: Joi.string().optional().trim(),
-  mobile: Joi.string().optional().trim(),
+  mobile: Joi.string()
+    .optional()
+    .trim()
+    .pattern(/^(\d{10}|\+91\d{10})$/)
+    .messages({
+      'string.pattern.base': 'Mobile must be 10 digits or +91 followed by 10 digits'
+    }),
   email: Joi.string().email().optional().trim(),
   business_name: Joi.string().optional().trim(),
   gst_number: Joi.string().allow('', null).optional().trim(),
