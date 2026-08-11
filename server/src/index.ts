@@ -17,17 +17,18 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
-app.use('/api/challans', challanRoutes);
-app.use('/api/customers', customerRoutes);
-app.use('/api/products', productRoutes);
-
 app.get('/', (req, res) => {
   res.status(200).json({
     message: 'Unified Business Platform Backend API is running live!',
     healthCheck: '/api/health'
   });
 });
+
+
+app.use('/api/auth', authRoutes);
+app.use('/api/challans', challanRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/products', productRoutes);
 
 app.get('/api/health', async (req: Request, res: Response) => {
   try {
