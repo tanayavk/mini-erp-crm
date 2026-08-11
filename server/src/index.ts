@@ -6,6 +6,7 @@ import pool from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import customerRoutes from './routes/customerRoutes.js';
+import productRoutes from './routes/productRoutes.js';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/customers', customerRoutes);
+app.use('/api/products', productRoutes);
 
 app.get('/api/health', async (req: Request, res: Response) => {
   try {
