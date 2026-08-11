@@ -1,4 +1,4 @@
-# Unified Business Platform — Mini ERP & CRM Operations Portal
+# "Unified Business Platform" - Mini ERP & CRM Operations Portal
 
 A full-stack Mini ERP & CRM system built for wholesale and distribution operations. Features role-based access control (RBAC), real-time inventory tracking with atomic MySQL row locks, sales challan workflows with snapshot metadata and PDF invoice generation.
 
