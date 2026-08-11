@@ -8,6 +8,7 @@ import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { Customers } from './pages/Customers';
 import { Products } from './pages/Products';
+import { Challans } from './pages/Challans';
 
 // Layout Wrapper for Authenticated Pages
 const MainLayout = () => (
@@ -21,11 +22,6 @@ const MainLayout = () => (
     </div>
   </div>
 );
-
-// Module Stubs
-const CustomersPage = () => <div className="text-xl font-semibold text-gray-700">Customers Module Placeholder</div>;
-const ProductsPage = () => <div className="text-xl font-semibold text-gray-700">Products & Inventory Module Placeholder</div>;
-const ChallansPage = () => <div className="text-xl font-semibold text-gray-700">Sales Challans Module Placeholder</div>;
 
 export default function App() {
   return (
@@ -41,7 +37,7 @@ export default function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/products" element={<Products />} />
-              <Route path="/challans" element={<ChallansPage />} />
+              <Route path="/challans" element={<Challans />} />
             </Route>
           </Route>
 
