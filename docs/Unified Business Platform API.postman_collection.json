@@ -2,10 +2,9 @@
   "info": {
     "_postman_id": "7b07d4ce-9a28-4cf1-ac86-8c088794af39",
     "name": "Unified Business Platform API",
-    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "description": "API collection for Mini ERP & CRM system supporting authentication, customer management, inventory control, and sales challans.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "54289667",
-    "_collection_link": "https://go.postman.co/collection/54289667-7b07d4ce-9a28-4cf1-ac86-8c088794af39?source=collection_link"
+    "_exporter_id": "54289667"
   },
   "item": [
     {
@@ -26,7 +25,21 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": { "raw": "{{baseUrl}}/health", "host": ["{{baseUrl}}"], "path": ["health"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Unified ERP API is up and running\",\n  \"database\": \"connected\",\n  \"timestamp\": \"2026-08-12T09:50:00.000Z\"\n}"
+            }
+          ]
         },
         {
           "name": "User Login (Admin)",
@@ -69,7 +82,21 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@erp.com\",\n  \"password\": \"Password123!\"\n}" },
+                "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Login successful\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFkbWluIiwiaWF0IjoxNzU1MDAwMDAwfQ.mock_signature\",\n    \"user\": {\n      \"id\": 1,\n      \"name\": \"System Admin\",\n      \"email\": \"admin@erp.com\",\n      \"role\": \"Admin\"\n    }\n  }\n}"
+            }
+          ]
         },
         {
           "name": "User Login (Sales/Warehouse/Accounts)",
@@ -112,7 +139,21 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "body": { "mode": "raw", "raw": "{\n  \"email\": \"sales@erp.com\",\n  \"password\": \"Password123!\"\n}" },
+                "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Login successful\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6IlNhbGVzIiwiaWF0IjoxNzU1MDAwMDAwfQ.mock_signature\",\n    \"user\": {\n      \"id\": 2,\n      \"name\": \"Sales User\",\n      \"email\": \"sales@erp.com\",\n      \"role\": \"Sales\"\n    }\n  }\n}"
+            }
+          ]
         }
       ]
     },
@@ -143,7 +184,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/customers", "host": ["{{baseUrl}}"], "path": ["customers"] }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Customer created successfully\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Rajesh Kumar\",\n    \"mobile\": \"9876543210\",\n    \"email\": \"rajesh@apexcorp.in\",\n    \"business_name\": \"Apex Wholesale Corp\",\n    \"gst_number\": \"29ABCDE1234F1ZH\",\n    \"type\": \"Wholesale\",\n    \"address\": \"123 Commercial Street, Bengaluru\",\n    \"status\": \"Active\",\n    \"created_at\": \"2026-08-12T09:50:00.000Z\"\n  }\n}"
+            }
+          ]
         },
         {
           "name": "List & Search (Paginated)",
@@ -178,7 +232,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/customers?page=1&limit=10&search=Apex&status=Active", "host": ["{{baseUrl}}"], "path": ["customers"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"Rajesh Kumar\",\n      \"mobile\": \"9876543210\",\n      \"email\": \"rajesh@apexcorp.in\",\n      \"business_name\": \"Apex Wholesale Corp\",\n      \"gst_number\": \"29ABCDE1234F1ZH\",\n      \"type\": \"Wholesale\",\n      \"address\": \"123 Commercial Street, Bengaluru\",\n      \"status\": \"Active\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 1,\n    \"page\": 1,\n    \"limit\": 10,\n    \"totalPages\": 1\n  }\n}"
+            }
+          ]
         },
         {
           "name": "View Customer Details",
@@ -196,7 +263,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/customers/1", "host": ["{{baseUrl}}"], "path": ["customers", "1"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Rajesh Kumar\",\n    \"mobile\": \"9876543210\",\n    \"email\": \"rajesh@apexcorp.in\",\n    \"business_name\": \"Apex Wholesale Corp\",\n    \"gst_number\": \"29ABCDE1234F1ZH\",\n    \"type\": \"Wholesale\",\n    \"address\": \"123 Commercial Street, Bengaluru\",\n    \"status\": \"Active\",\n    \"notes\": [\n      {\n        \"id\": 1,\n        \"note\": \"Discussed Q3 bulk pricing order.\",\n        \"follow_up_date\": \"2026-08-20T10:00:00.000Z\",\n        \"created_at\": \"2026-08-12T09:50:00.000Z\"\n      }\n    ]\n  }\n}"
+            }
+          ]
         },
         {
           "name": "Update Customer",
@@ -223,7 +303,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PUT",
+                "url": { "raw": "{{baseUrl}}/customers/1", "host": ["{{baseUrl}}"], "path": ["customers", "1"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Customer updated successfully\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"Rajesh Kumar Updated\",\n    \"status\": \"Active\"\n  }\n}"
+            }
+          ]
         },
         {
           "name": "Add Follow-Up Note",
@@ -251,7 +344,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/customers/1/notes", "host": ["{{baseUrl}}"], "path": ["customers", "1", "notes"] }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Follow-up note added successfully\",\n  \"data\": {\n    \"id\": 1,\n    \"customer_id\": 1,\n    \"note\": \"Discussed Q3 bulk pricing order. Follow up next week.\",\n    \"follow_up_date\": \"2026-08-20T10:00:00.000Z\"\n  }\n}"
+            }
+          ]
         }
       ]
     },
@@ -282,7 +388,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/products", "host": ["{{baseUrl}}"], "path": ["products"] }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Product created successfully\",\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"CAT6 Ethernet Cable (30m)\",\n    \"sku\": \"SKU-NET-001\",\n    \"category\": \"Hardware\",\n    \"unit_price\": 850.00,\n    \"current_stock\": 100,\n    \"min_stock_alert\": 15,\n    \"location\": \"Bhiwandi Warehouse - Rack A1\"\n  }\n}"
+            }
+          ]
         },
         {
           "name": "List Products & Low Stock Alerts",
@@ -317,7 +436,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/products?page=1&limit=10&category=Hardware&low_stock=false", "host": ["{{baseUrl}}"], "path": ["products"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"CAT6 Ethernet Cable (30m)\",\n      \"sku\": \"SKU-NET-001\",\n      \"category\": \"Hardware\",\n      \"unit_price\": 850.00,\n      \"current_stock\": 100,\n      \"min_stock_alert\": 15,\n      \"is_low_stock\": false\n    }\n  ],\n  \"pagination\": {\n    \"total\": 1,\n    \"page\": 1,\n    \"limit\": 10,\n    \"totalPages\": 1\n  }\n}"
+            }
+          ]
         },
         {
           "name": "View Single Product",
@@ -335,7 +467,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/products/1", "host": ["{{baseUrl}}"], "path": ["products", "1"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"name\": \"CAT6 Ethernet Cable (30m)\",\n    \"sku\": \"SKU-NET-001\",\n    \"category\": \"Hardware\",\n    \"unit_price\": 850.00,\n    \"current_stock\": 100,\n    \"min_stock_alert\": 15,\n    \"location\": \"Bhiwandi Warehouse - Rack A1\"\n  }\n}"
+            }
+          ]
         },
         {
           "name": "Edit Product",
@@ -362,7 +507,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PUT",
+                "url": { "raw": "{{baseUrl}}/products/1", "host": ["{{baseUrl}}"], "path": ["products", "1"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Product updated successfully\",\n  \"data\": {\n    \"id\": 1,\n    \"unit_price\": 899.00,\n    \"min_stock_alert\": 20\n  }\n}"
+            }
+          ]
         },
         {
           "name": "Stock Adjustment",
@@ -390,7 +548,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/products/1/stock", "host": ["{{baseUrl}}"], "path": ["products", "1", "stock"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Stock adjusted successfully\",\n  \"data\": {\n    \"product_id\": 1,\n    \"new_stock\": 125,\n    \"movement_type\": \"IN\",\n    \"quantity_changed\": 25\n  }\n}"
+            }
+          ]
         },
         {
           "name": "View Audit Stock Logs",
@@ -419,7 +590,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/products/stock-logs/all?page=1&limit=10", "host": ["{{baseUrl}}"], "path": ["products", "stock-logs", "all"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"product_id\": 1,\n      \"product_name\": \"CAT6 Ethernet Cable (30m)\",\n      \"quantity_changed\": 25,\n      \"movement_type\": \"IN\",\n      \"reason\": \"Received fresh vendor stock shipment\",\n      \"created_by\": \"Warehouse User\",\n      \"created_at\": \"2026-08-12T09:50:00.000Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 1,\n    \"page\": 1,\n    \"limit\": 10,\n    \"totalPages\": 1\n  }\n}"
+            }
+          ]
         }
       ]
     },
@@ -450,7 +634,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/challans", "host": ["{{baseUrl}}"], "path": ["challans"] }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Sales challan created successfully\",\n  \"data\": {\n    \"id\": 1,\n    \"challan_number\": \"CHLN-20260812-0001\",\n    \"customer_id\": 1,\n    \"total_quantity\": 5,\n    \"status\": \"Draft\",\n    \"created_at\": \"2026-08-12T09:50:00.000Z\"\n  }\n}"
+            }
+          ]
         },
         {
           "name": "Create Confirmed Sales Challan (Deducts Stock)",
@@ -476,7 +673,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "201 Created",
+              "originalRequest": {
+                "method": "POST",
+                "url": { "raw": "{{baseUrl}}/challans", "host": ["{{baseUrl}}"], "path": ["challans"] }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Sales challan created and stock deducted\",\n  \"data\": {\n    \"id\": 2,\n    \"challan_number\": \"CHLN-20260812-0002\",\n    \"customer_id\": 1,\n    \"total_quantity\": 2,\n    \"status\": \"Confirmed\",\n    \"created_at\": \"2026-08-12T09:50:00.000Z\"\n  }\n}"
+            }
+          ]
         },
         {
           "name": "Confirm/Cancel Draft Challan",
@@ -504,7 +714,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "PATCH",
+                "url": { "raw": "{{baseUrl}}/challans/1/status", "host": ["{{baseUrl}}"], "path": ["challans", "1", "status"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"message\": \"Challan status updated to Confirmed\",\n  \"data\": {\n    \"id\": 1,\n    \"status\": \"Confirmed\"\n  }\n}"
+            }
+          ]
         },
         {
           "name": "List & Search Sales Challans",
@@ -535,7 +758,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/challans?page=1&limit=10&status=Confirmed", "host": ["{{baseUrl}}"], "path": ["challans"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"data\": [\n    {\n      \"id\": 1,\n      \"challan_number\": \"CHLN-20260812-0001\",\n      \"customer_name\": \"Apex Wholesale Corp\",\n      \"total_quantity\": 5,\n      \"status\": \"Confirmed\",\n      \"created_by\": \"Sales User\",\n      \"created_at\": \"2026-08-12T09:50:00.000Z\"\n    }\n  ],\n  \"pagination\": {\n    \"total\": 1,\n    \"page\": 1,\n    \"limit\": 10,\n    \"totalPages\": 1\n  }\n}"
+            }
+          ]
         },
         {
           "name": "View Challan Details & Item Snapshots",
@@ -553,7 +789,20 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "200 OK",
+              "originalRequest": {
+                "method": "GET",
+                "url": { "raw": "{{baseUrl}}/challans/1", "host": ["{{baseUrl}}"], "path": ["challans", "1"] }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [{ "key": "Content-Type", "value": "application/json" }],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"id\": 1,\n    \"challan_number\": \"CHLN-20260812-0001\",\n    \"customer\": {\n      \"id\": 1,\n      \"name\": \"Rajesh Kumar\",\n      \"business_name\": \"Apex Wholesale Corp\"\n    },\n    \"status\": \"Confirmed\",\n    \"items\": [\n      {\n        \"id\": 1,\n        \"product_id\": 1,\n        \"product_name_snapshot\": \"CAT6 Ethernet Cable (30m)\",\n        \"unit_price_snapshot\": 850.00,\n        \"quantity\": 5\n      }\n    ],\n    \"total_quantity\": 5,\n    \"created_at\": \"2026-08-12T09:50:00.000Z\"\n  }\n}"
+            }
+          ]
         }
       ]
     }
@@ -595,7 +844,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": ""
+      "value": "https://unified-erp-backend.onrender.com/api"
     },
     {
       "key": "token",
