@@ -4,6 +4,15 @@ A full-stack Mini ERP & CRM system built for wholesale and distribution operatio
 
 ---
 
+##  Live Deployment Links
+
+* **Live Frontend Application**: [https://mini-erp-crm-tvk6.vercel.app](https://mini-erp-crm-tvk6.vercel.app)
+* **Live Backend API**: `https://unified-erp-backend.onrender.com/api`
+* **Production Database**: Managed MySQL 8.x Instance hosted on Railway (`altaria.proxy.rlwy.net:34264`)
+* **API Health Check Endpoint**: [`https://unified-erp-backend.onrender.com/api/health`](https://unified-erp-backend.onrender.com/api/health) *(Returns active database connection status)*
+
+---
+
 ## 🔑 Test Login Credentials
 
 All test accounts use the password: `Password123!`
