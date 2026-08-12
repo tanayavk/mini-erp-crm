@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - DB_HOST=altaria.proxy.rlwy.net
+      - DB_USER=root
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=railway
+      - DB_PORT=34264
+      - JWT_SECRET=${JWT_SECRET}
+      - CORS_ORIGIN=*
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_BASE_URL=http://localhost:5000/api
+    ports:
+      - "80:80"
+    depends_on:
+      - server
